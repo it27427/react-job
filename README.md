@@ -1,6 +1,6 @@
 # React Jobs Project
 
-This is the jobs listing project using React-18
+This is the jobs listing project using React-18 and Tailwind CSS
 
 <img src="public/screen.png" />
 
