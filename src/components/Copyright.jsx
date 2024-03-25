@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Copyright = () => {
-  return <span>{new Date().getFullYear()}</span>;
+  const currentYear = new Date().getFullYear();
+
+  return <>{currentYear}</>;
 };
 
 export default Copyright;
