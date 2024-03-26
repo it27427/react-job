@@ -1,6 +1,7 @@
 import { Link, useParams, useLoaderData, useNavigate } from 'react-router-dom';
 import GoBack from '../components/GoBack';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
 
 const JobPage = ({ deleteJob }) => {
@@ -14,6 +15,8 @@ const JobPage = ({ deleteJob }) => {
     if (!confirm) return;
 
     deleteJob(jobId);
+
+    toast.success('Job deleted successfully!');
 
     navigate('/jobs');
   };
