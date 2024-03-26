@@ -9,7 +9,7 @@ const GoBack = () => {
           to='/jobs'
           className='text-indigo-500 hover:text-indigo-600 flex items-center'
         >
-          <FaArrowLeft classNameName='mr-2' /> Back to Job Listings
+          <FaArrowLeft className='mr-2' /> Back to Job Listings
         </Link>
       </div>
     </section>
