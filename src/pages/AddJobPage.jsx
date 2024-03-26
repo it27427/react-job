@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const AddJobPage = () => {
   const [title, setTitle] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState('Under');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
   const [salary, setSalary] = useState('');
@@ -11,11 +11,28 @@ const AddJobPage = () => {
   const [contactEmail, setContactEmail] = useState('');
   const [contactPhone, setContactPhone] = useState('');
 
+  const handleAddJob = (e) => {
+    e.preventDefault();
+    const newJob = {
+      title,
+      type,
+      location,
+      description,
+      salary,
+      company: {
+        name: companyName,
+        description: companyDescription,
+        contactEmail,
+        contactPhone,
+      },
+    };
+  };
+
   return (
     <section className='bg-indigo-50'>
       <div className='container m-auto max-w-2xl py-24'>
         <div className='bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0'>
-          <form>
+          <form onSubmit={handleAddJob}>
             <h2 className='text-3xl text-center font-semibold mb-6'>Add Job</h2>
 
             <div className='mb-4'>
@@ -187,6 +204,7 @@ const AddJobPage = () => {
                 name='contact_phone'
                 className='border rounded w-full py-2 px-3'
                 placeholder='Optional phone for applicants'
+                pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
                 value={contactPhone}
                 onChange={(e) => setContactPhone(e.target.value)}
               />
