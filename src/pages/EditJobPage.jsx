@@ -19,7 +19,7 @@ const EditJobPage = ({ updateJobSubmit }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const handleEditJob = (e) => {
+  const handleUpdateJob = (e) => {
     e.preventDefault();
     const updatedJob = {
       id,
@@ -47,9 +47,9 @@ const EditJobPage = ({ updateJobSubmit }) => {
     <section className='bg-indigo-50'>
       <div className='container m-auto max-w-2xl py-24'>
         <div className='bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0'>
-          <form onSubmit={handleEditJob}>
+          <form onSubmit={handleUpdateJob}>
             <h2 className='text-3xl text-center font-semibold mb-6'>
-              Edit Job
+              Update Job
             </h2>
 
             <div className='mb-4'>
