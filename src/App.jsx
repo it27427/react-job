@@ -14,7 +14,7 @@ import NotFound from './pages/NotFound';
 
 const App = () => {
   // ADD A NEW-JOB
-  const handleJobSubmit = async (newJob) => {
+  const addJob = async (newJob) => {
     const res = await fetch('/api/jobs', {
       method: 'POST',
       headers: {
@@ -26,17 +26,24 @@ const App = () => {
   };
 
   // DELETE-JOB
+  const deleteJob = async (id) => {
+    const res = await fetch(`/api/jobs/${id}`, {
+      method: 'DELETE',
+    });
+    return;
+  };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path='/jobs' element={<JobsPage />} />
-        <Route path='/jobs/:id' element={<JobPage />} loader={jobLoader} />
         <Route
-          path='/add-job'
-          element={<AddJobPage addJobSubmit={handleJobSubmit} />}
+          path='/jobs/:id'
+          element={<JobPage deleteJob={deleteJob} />}
+          loader={jobLoader}
         />
+        <Route path='/add-job' element={<AddJobPage addJobSubmit={addJob} />} />
         <Route path='*' element={<NotFound />} />
       </Route>
     )
